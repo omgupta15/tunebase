@@ -3,18 +3,18 @@ import axios, { Method } from "axios";
 import Song from "../types/song";
 import { IJioSaavn } from "../types/API/JioSaavn/interfaces";
 import {
-  isGetSongStreamUrlResponse,
+  isGetSongDetailsResponse,
   isResponseData,
   isSearchSongsResponse,
 } from "../types/API/JioSaavn/checks";
 import {
   SearchSongsParams,
-  GetSongStreamUrlParams,
-  GetSongStreamUrlResponse,
+  GetSongDetailsParams,
   RequestParams,
   ResponseObject,
 } from "../types/API/JioSaavn/types";
 import convertStreamUrl from "../utils/convertStreamUrl";
+import convertSecondsToDurationString from "../utils/convertSecondsToDurationString";
 
 class JioSaavn implements IJioSaavn {
   method: Method;
@@ -66,28 +66,37 @@ class JioSaavn implements IJioSaavn {
     if (!response.success) return [];
 
     if (!isSearchSongsResponse(response.data)) return [];
-    return response.data.songs.data;
+
+    const songsList = response.data.songs.data;
+    for (let index = 0; index < songsList.length; index++)
+      songsList[index] = await this.getSongDetails(songsList[index]);
+    return songsList;
   }
 
-  async getSongStreamUrl(songId: string): Promise<string> {
-    const params: GetSongStreamUrlParams = {
+  async getSongDetails(song: Song): Promise<Song> {
+    const params: GetSongDetailsParams = {
       __call: "song.getDetails",
       cc: "in",
       _marker: "0?_marker=0",
       _format: "json",
-      pids: songId,
+      pids: song.id,
     };
 
     const response = await this.request(params);
-    if (!response.success) return "";
+    if (!response.success) return song;
 
-    if (!isGetSongStreamUrlResponse(response.data, songId)) return "";
+    if (!isGetSongDetailsResponse(response.data, song.id)) return song;
 
-    const previewUrl = response.data[songId].media_preview_url,
-      is320Kbps = response.data[songId]["320kbps"] === "true";
+    const previewUrl = response.data[song.id].media_preview_url,
+      duration = response.data[song.id].duration,
+      is320Kbps = response.data[song.id]["320kbps"] === "true",
+      year = response.data[song.id].year;
 
-    const streamUrl = convertStreamUrl(previewUrl, is320Kbps);
-    return streamUrl;
+    song.year = year;
+    song.durationSeconds = parseInt(duration);
+    song.durationString = convertSecondsToDurationString(song.durationSeconds);
+    song.streamUrl = convertStreamUrl(previewUrl, is320Kbps);
+    return song;
   }
 }
 

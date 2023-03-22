@@ -1,14 +1,14 @@
 import { Method } from "axios";
-import { RequestParams } from "./types";
+import Song from "../../song";
+import { RequestParams, ResponseObject } from "./types";
 
 interface IJioSaavn {
   method: Method;
   baseUrl: string;
 
-  request: (params: RequestParams) => {};
-
-  searchSongs: (query: string) => {};
-  getSongStreamUrl: (songId: string) => {};
+  request(params: RequestParams): Promise<ResponseObject>;
+  searchSongs(query: string): Promise<Song[]>;
+  getSongDetails(song: Song): Promise<Song>;
 }
 
 export { IJioSaavn };

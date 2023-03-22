@@ -9,7 +9,7 @@ export type SearchSongsParams = {
   includeMetaTags: "1";
   query: string;
 };
-export type GetSongStreamUrlParams = {
+export type GetSongDetailsParams = {
   __call: "song.getDetails";
   cc: "in";
   _marker: "0?_marker=0";
@@ -18,18 +18,23 @@ export type GetSongStreamUrlParams = {
 };
 
 // Requests
-export type RequestParams = SearchSongsParams | GetSongStreamUrlParams;
+export type RequestParams = SearchSongsParams | GetSongDetailsParams;
 
 /**********************************************************************************/
 
 // Response Data
 export type SearchSongsResponse = { songs: { data: Song[] } };
-export type GetSongStreamUrlResponse = {
-  [id: string]: { media_preview_url: string; "320kbps": "true" | "false" };
+export type GetSongDetailsResponse = {
+  [id: string]: {
+    media_preview_url: string;
+    duration: string;
+    "320kbps": "true" | "false";
+    year: string;
+  };
 };
 
 // Responses
-export type ResponseData = SearchSongsResponse | GetSongStreamUrlParams;
+export type ResponseData = SearchSongsResponse | GetSongDetailsParams;
 export type ResponseObject =
   | { success: true; data: ResponseData }
   | { success: false };

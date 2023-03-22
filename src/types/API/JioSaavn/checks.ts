@@ -1,7 +1,7 @@
 import Song from "../../song";
 import {
   SearchSongsResponse,
-  GetSongStreamUrlResponse,
+  GetSongDetailsResponse,
   ResponseData,
 } from "./types";
 
@@ -43,10 +43,10 @@ export const isSearchSongsResponse = (
   return false;
 };
 
-export const isGetSongStreamUrlResponse = (
+export const isGetSongDetailsResponse = (
   response: any,
   songId: string
-): response is GetSongStreamUrlResponse => {
+): response is GetSongDetailsResponse => {
   if (
     typeof response === "object" &&
     songId in response &&
@@ -56,7 +56,9 @@ export const isGetSongStreamUrlResponse = (
     "320kbps" in response[songId] &&
     typeof response[songId]["320kbps"] === "string" &&
     (response[songId]["320kbps"] === "true" ||
-      response[songId]["320kbps"] === "false")
+      response[songId]["320kbps"] === "false") &&
+    "year" in response[songId] &&
+    typeof response[songId].year === "string"
   )
     return true;
 
@@ -68,7 +70,7 @@ export const isResponseData = (
   songId?: string
 ): response is ResponseData => {
   if (isSearchSongsResponse(response)) return true;
-  if (songId !== undefined && isGetSongStreamUrlResponse(response, songId))
+  if (songId !== undefined && isGetSongDetailsResponse(response, songId))
     return true;
   return false;
 };
