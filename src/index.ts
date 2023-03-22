@@ -3,7 +3,8 @@
 import cli from "./cli/index.js";
 
 const run = async (): Promise<void> => {
-  console.log();
+  // Clear Screen
+  process.stdout.write("\x1b[H\x1b[2J");
 
   const query = await cli.getQuery();
 
