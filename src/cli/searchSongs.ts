@@ -7,7 +7,7 @@ import JioSaavn from "../API/JioSaavn.js";
 import Song from "../types/song.js";
 
 const searchSongs = async (query: string): Promise<Song[]> => {
-  const spinner = createSpinner(`Searching "${query}"...`).start();
+  const spinner = createSpinner(`Searching for "${query}"...`).start();
 
   const songs = await JioSaavn.searchSongs(query);
   if (songs.length === 0) {
