@@ -1,18 +1,26 @@
-import axios, { Method } from "axios";
+import axios from "axios";
 
-import Song from "../types/song";
+// Interfaces
 import { IJioSaavn } from "../types/API/JioSaavn/interfaces";
-import {
-  isGetSongDetailsResponse,
-  isResponseData,
-  isSearchSongsResponse,
-} from "../types/API/JioSaavn/checks";
+
+// Types
+import { Method } from "axios";
+import Song from "../types/song";
 import {
   SearchSongsParams,
   GetSongDetailsParams,
   RequestParams,
   ResponseObject,
 } from "../types/API/JioSaavn/types";
+
+// Type Checks
+import {
+  isGetSongDetailsResponse,
+  isSearchSongsResponse,
+  isResponseData,
+} from "../types/API/JioSaavn/checks";
+
+// Utils
 import convertStreamUrl from "../utils/convertStreamUrl";
 import convertSecondsToDurationString from "../utils/convertSecondsToDurationString";
 

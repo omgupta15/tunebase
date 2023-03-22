@@ -7,6 +7,7 @@ interface IJioSaavn {
   baseUrl: string;
 
   request(params: RequestParams): Promise<ResponseObject>;
+
   searchSongs(query: string): Promise<Song[]>;
   getSongDetails(song: Song): Promise<Song>;
 }
