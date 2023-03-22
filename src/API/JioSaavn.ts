@@ -1,4 +1,5 @@
 import axios from "axios";
+import { decode } from "html-entities";
 
 // Interfaces
 import { IJioSaavn } from "../types/API/JioSaavn/interfaces.js";
@@ -78,13 +79,9 @@ class JioSaavn implements IJioSaavn {
     const songsList = response.data.songs.data;
     for (let index = 0; index < songsList.length; index++) {
       songsList[index] = await this.getSongDetails(songsList[index]);
-      ("ra Saath · Talwiinder &amp; Vylom • 03:35 • 20");
-      songsList[index].title = songsList[index].title.replace(/&amp;/g, "&");
-      songsList[index].album = songsList[index].album.replace(/&amp;/g, "&");
-      songsList[index].description = songsList[index].description.replace(
-        /&amp;/g,
-        "&"
-      );
+      songsList[index].title = decode(songsList[index].title);
+      songsList[index].album = decode(songsList[index].album);
+      songsList[index].description = decode(songsList[index].description);
     }
     return songsList;
   }
