@@ -7,7 +7,7 @@ const getQuery = async (): Promise<string> => {
     const answer = await inquirer.prompt({
       name: "query",
       type: "input",
-      message: "🔍 Search a song: ",
+      message: "🔍 Search a song:",
     });
     console.log();
     query = answer.query;

@@ -1,4 +1,4 @@
-import { AnswerObject } from "./types";
+import { AnswerObject } from "./types.js";
 
 export const isSelectSongAnswerObject = (
   answer: any

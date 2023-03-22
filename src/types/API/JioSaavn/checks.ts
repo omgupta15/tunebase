@@ -1,9 +1,9 @@
-import Song from "../../song";
+import Song from "../../song.js";
 import {
   SearchSongsResponse,
   GetSongDetailsResponse,
   ResponseData,
-} from "./types";
+} from "./types.js";
 
 export const isSong = (data: any): data is Song => {
   if (

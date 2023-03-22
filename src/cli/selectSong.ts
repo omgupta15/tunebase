@@ -1,10 +1,10 @@
 import inquirer from "inquirer";
 
 // Types
-import Song from "../types/song";
+import Song from "../types/song.js";
 
 // Type Checks
-import { isSelectSongAnswerObject } from "../types/checks";
+import { isSelectSongAnswerObject } from "../types/checks.js";
 
 const getSongDetailsString = (song: Song): string => {
   return `${song.title} • ${song.description} • ${song.durationString} • ${song.year}`;

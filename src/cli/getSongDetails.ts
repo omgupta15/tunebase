@@ -1,10 +1,10 @@
 import { createSpinner } from "nanospinner";
 
 // API
-import JioSaavn from "../API/JioSaavn";
+import JioSaavn from "../API/JioSaavn.js";
 
 // Types
-import Song from "../types/song";
+import Song from "../types/song.js";
 
 const getSongDetails = async (song: Song): Promise<Song | undefined> => {
   if (song.streamUrl !== undefined) return song;

@@ -1,6 +1,6 @@
 import { Method } from "axios";
-import Song from "../../song";
-import { RequestParams, ResponseObject } from "./types";
+import Song from "../../song.js";
+import { RequestParams, ResponseObject } from "./types.js";
 
 interface IJioSaavn {
   method: Method;

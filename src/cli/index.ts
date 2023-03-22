@@ -1,7 +1,7 @@
-import getQuery from "./getQuery";
-import searchSongs from "./searchSongs";
-import selectSong from "./selectSong";
-import getSongDetails from "./getSongDetails";
-import play from "./play";
+import getQuery from "./getQuery.js";
+import searchSongs from "./searchSongs.js";
+import selectSong from "./selectSong.js";
+import getSongDetails from "./getSongDetails.js";
+import play from "./play.js";
 
 export default { getQuery, searchSongs, selectSong, getSongDetails, play };

@@ -1,28 +1,28 @@
 import axios from "axios";
 
 // Interfaces
-import { IJioSaavn } from "../types/API/JioSaavn/interfaces";
+import { IJioSaavn } from "../types/API/JioSaavn/interfaces.js";
 
 // Types
 import { Method } from "axios";
-import Song from "../types/song";
+import Song from "../types/song.js";
 import {
   SearchSongsParams,
   GetSongDetailsParams,
   RequestParams,
   ResponseObject,
-} from "../types/API/JioSaavn/types";
+} from "../types/API/JioSaavn/types.js";
 
 // Type Checks
 import {
   isGetSongDetailsResponse,
   isSearchSongsResponse,
   isResponseData,
-} from "../types/API/JioSaavn/checks";
+} from "../types/API/JioSaavn/checks.js";
 
 // Utils
-import convertStreamUrl from "../utils/convertStreamUrl";
-import convertSecondsToDurationString from "../utils/convertSecondsToDurationString";
+import convertStreamUrl from "../utils/convertStreamUrl.js";
+import convertSecondsToDurationString from "../utils/convertSecondsToDurationString.js";
 
 class JioSaavn implements IJioSaavn {
   method: Method;
@@ -76,8 +76,16 @@ class JioSaavn implements IJioSaavn {
     if (!isSearchSongsResponse(response.data)) return [];
 
     const songsList = response.data.songs.data;
-    for (let index = 0; index < songsList.length; index++)
+    for (let index = 0; index < songsList.length; index++) {
       songsList[index] = await this.getSongDetails(songsList[index]);
+      ("ra Saath · Talwiinder &amp; Vylom • 03:35 • 20");
+      songsList[index].title = songsList[index].title.replace(/&amp;/g, "&");
+      songsList[index].album = songsList[index].album.replace(/&amp;/g, "&");
+      songsList[index].description = songsList[index].description.replace(
+        /&amp;/g,
+        "&"
+      );
+    }
     return songsList;
   }
 

@@ -1,10 +1,10 @@
 import { createSpinner } from "nanospinner";
 
 // APIs
-import JioSaavn from "../API/JioSaavn";
+import JioSaavn from "../API/JioSaavn.js";
 
 // Types
-import Song from "../types/song";
+import Song from "../types/song.js";
 
 const searchSongs = async (query: string): Promise<Song[]> => {
   const spinner = createSpinner(`Searching "${query}"...`).start();

@@ -7,7 +7,8 @@ const convertSecondsToDurationString = (seconds: number): string => {
 
   let minutes = Math.floor(seconds / 60);
   seconds -= minutes * 60;
-  const minutesString = minutes.toString().padStart(2, "0");
+  let minutesString = minutes.toString().padStart(2, "0");
+  if (hours === 0) minutesString = minutes.toString().padStart(1, "0");
 
   const secondsString = seconds.toString().padStart(2, "0");
 

@@ -1,8 +1,10 @@
 #! /usr/bin/env node
 
-import cli from "./cli";
+import cli from "./cli/index.js";
 
 const run = async (): Promise<void> => {
+  console.log();
+
   const query = await cli.getQuery();
 
   const songs = await cli.searchSongs(query);
