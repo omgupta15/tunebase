@@ -12,8 +12,10 @@ const run = async (): Promise<void> => {
 
   const logo = await generateLogo("play-music");
   console.log(logo);
+  console.log("Search and play a song right from your terminal\n");
 
   const query = await cli.getQuery();
+  if (!query) return; // Help Menu shown
 
   const songs = await cli.searchSongs(query);
   if (songs.length === 0) return;
@@ -27,5 +29,5 @@ const run = async (): Promise<void> => {
 };
 
 run()
-  .then(() => console.log("Execution complete."))
-  .catch((err) => console.log("Error:", err));
+  .then(() => {})
+  .catch((err) => console.log("An Error Occurred:", err));

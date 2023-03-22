@@ -112,8 +112,6 @@ const seekBackward = (player: Audic, seconds: number): void => {
 };
 
 const seekPlayer = (player: Audic, key: number): void => {
-  console.log("Key:", key);
-
   const duration = player.duration;
 
   let newTime = Math.round((duration * key) / 10);
