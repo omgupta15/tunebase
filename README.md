@@ -1,6 +1,7 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/omgupta15/play-music/main/assets/img/logo-dark.png?token=GHSAT0AAAAAABXTH6PCF5HB2NHZIQQKXNI2ZA4ALRQ#gh-dark-mode-only" alt="play-music" height="100" />
-  <img src="https://raw.githubusercontent.com/omgupta15/play-music/main/assets/img/logo-light.png?token=GHSAT0AAAAAABXTH6PDQMMNEM7PQKOIJDW4ZA4ANNQ#gh-light-mode-only" alt="play-music" height="100" />
+  <img src="https://user-images.githubusercontent.com/36772158/227156345-4c3b26b3-c055-40c0-9de1-11bffb4bd09f.png#gh-dark-mode-only" alt="play-music" height="100" />
+  <img src="https://user-images.githubusercontent.com/36772158/227156246-e96a26ac-aa4e-4db8-a4f7-7d7051d8258a.png#gh-light-mode-only" alt="play-music" height="100" />
+
 </h1>
 <p align="center">Search and play music right from your terminal</p>
 <div align="center">
