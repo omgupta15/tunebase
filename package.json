@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/omgupta15/tunebase/issues"
   },
-  "homepage": "https://github.com/omgupta15/tunebase#readme",
+  "homepage": "https://cli.tunebase.app/",
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node-fetch": "^2.6.2",
