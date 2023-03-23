@@ -1,7 +1,7 @@
 {
   "name": "play-music",
   "version": "1.0.0",
-  "description": "",
+  "description": "Search and play music right from your terminal",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "type": "module",

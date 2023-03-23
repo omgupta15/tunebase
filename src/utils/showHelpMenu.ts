@@ -2,8 +2,11 @@ import chalk from "chalk";
 
 const showHelpMenu = () => {
   const HELP_MENU_TEXT = `Usage:
+  play
+  play [search query]
+
+Alias:
   play-music
-  play-music [search query]
 
 Available Commands:
   [search query]        Search and play a song right from your terminal

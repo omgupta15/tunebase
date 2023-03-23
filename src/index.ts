@@ -12,7 +12,7 @@ const run = async (): Promise<void> => {
 
   const logo = await generateLogo("play-music");
   console.log(logo);
-  console.log("Search and play a song right from your terminal\n");
+  console.log("Search and play music right from your terminal\n");
 
   const query = await cli.getQuery();
   if (!query) return; // Help Menu shown
