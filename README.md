@@ -39,6 +39,7 @@ npm install -g play-music
 
 ## Usage
 
+Once installed, you can run any of the following commands on your terminal:
 ```bash
 play
 play [search query]
