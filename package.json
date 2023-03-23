@@ -22,6 +22,7 @@
   "author": "Om Gupta",
   "license": "GPL-3.0-or-later",
   "bin": {
+    "play": "lib/index.js",
     "play-music": "lib/index.js"
   },
   "bugs": {
