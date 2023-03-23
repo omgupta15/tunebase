@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tunebase CLI Docs</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 align="center">
+        <img
+          src="https://user-images.githubusercontent.com/36772158/227174869-23b31894-3974-47f3-bea2-6f2cfc37cdf5.png#gh-dark-mode-only"
+          alt="play-music"
+          height="100"
+        />
+      </h1>
+      <p align="center">Search and play music right from your terminal</p>
+      <p align="center">
+        <a href="https://www.npmjs.org/package/tunebase"
+          ><img
+            src="https://img.shields.io/npm/v/tunebase.svg?style=flat-square"
+            alt="npm version"
+        /></a>
+        <a href="https://www.npmjs.org/package/tunebase"
+          ><img
+            src="https://img.shields.io/bundlephobia/minzip/tunebase?style=flat-square"
+            alt="npm version"
+        /></a>
+      </p>
+      <h2 id="demo">Demo</h2>
+      <iframe
+        style="width: 100%; aspect-ratio: 16 / 9"
+        src="https://www.youtube-nocookie.com/embed/q4sm-4L6LXs?controls=0"
+        title="YouTube video player"
+        allowfullscreen
+      ></iframe>
+      <h2 id="features">Features</h2>
+      <ul>
+        <li>🔍 Search for music</li>
+        <li>🔉 Increase/decrease volume</li>
+        <li>⏯️ Pause/play music</li>
+        <li>🌁 ASCII characters based thumbnail</li>
+        <li>⏩ Seek forwards and backwards</li>
+        <li>
+          🔢 Supports seeking to specific point (0…9) (6 advances to 60% of
+          duration)
+        </li>
+        <li>✅ Works without login/authentication</li>
+      </ul>
+      <h2 id="installation">Installation</h2>
+      <p>Install <code>tunebase</code> with npm:</p>
+      <pre
+        class="language-bash"
+      ><code class="prism  language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g tunebase
+</code></pre>
+      <!--  TODO: Add instructions for installing VLC. -->
+      <h2 id="usage">Usage</h2>
+      <p>
+        Once installed, you can run any of the following commands on your
+        terminal:
+      </p>
+      <pre class="language-bash"><code class="prism  language-bash">play
+play <span class="token punctuation">[</span>search query<span class="token punctuation">]</span>
+</code></pre>
+      <p>You can also use the following aliases:</p>
+      <ul>
+        <li><code>tunebase</code></li>
+        <li><code>play-music</code></li>
+      </ul>
+      <h2 id="terminal-commands">Terminal Commands</h2>
+      <pre><code>[search query]        Search and play a song right from your terminal
+help                  To show this help menu
+</code></pre>
+      <h2 id="player-commands">Player Commands</h2>
+      <pre><code>SPACE                 Play/Pause
+← (left arrow key)    Seek back by 5 seconds
+→ (right arrow key)   Seek forward by 5 seconds
+↑ (up arrow key)      Increase Volume
+↓ (down arrow key)    Decrease Volume
+0..9                  Seek to specific point in the song (6 seeks to 60% of duration)
+</code></pre>
+      <h2 id="flags">Flags</h2>
+      <pre><code>-h, --help            To show this help menu
+</code></pre>
+    </div>
+  </body>
+</html>
