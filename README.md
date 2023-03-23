@@ -17,6 +17,12 @@
 
 https://user-images.githubusercontent.com/36772158/227199684-c82053fd-2471-4b1f-8a7a-173a60352ad7.mp4
 
+
+<div>
+  
+  You can also view this demo video on&nbsp; [<img src="https://user-images.githubusercontent.com/36772158/227202995-9431fe6b-94f7-4295-9059-28df056d6eaa.png" alt="" width="16" height="16" /> YouTube](https://youtu.be/q4sm-4L6LXs).
+</div>
+
 ## Features
 
 - 🔍 Search for music
