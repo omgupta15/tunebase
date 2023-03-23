@@ -1,5 +1,5 @@
 {
-  "name": "play-music",
+  "name": "tunebase",
   "version": "1.0.0",
   "description": "Search and play music right from your terminal",
   "main": "lib/index.js",
@@ -17,18 +17,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omgupta15/play-music.git"
+    "url": "git+https://github.com/omgupta15/tunebase.git"
   },
   "author": "Om Gupta",
   "license": "GPL-3.0-or-later",
   "bin": {
     "play": "lib/index.js",
-    "play-music": "lib/index.js"
+    "play-music": "lib/index.js",
+    "tunebase": "lib/index.js"
   },
   "bugs": {
-    "url": "https://github.com/omgupta15/play-music/issues"
+    "url": "https://github.com/omgupta15/tunebase/issues"
   },
-  "homepage": "https://github.com/omgupta15/play-music#readme",
+  "homepage": "https://github.com/omgupta15/tunebase#readme",
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node-fetch": "^2.6.2",

@@ -7,6 +7,7 @@ const showHelpMenu = () => {
 
 Alias:
   play-music
+  tunebase
 
 Available Commands:
   [search query]        Search and play a song right from your terminal
