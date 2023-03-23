@@ -10,7 +10,7 @@ const run = async (): Promise<void> => {
   // Clear Screen
   process.stdout.write("\x1b[H\x1b[2J");
 
-  const logo = await generateLogo("play-music");
+  const logo = await generateLogo("tunebase");
   console.log(logo);
   console.log("Search and play music right from your terminal\n");
 
