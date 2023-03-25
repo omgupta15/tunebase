@@ -6,6 +6,7 @@
 <div align="center">
 
 ![npm version](https://img.shields.io/npm/v/tunebase?color=blueviolet&label=tunebase&logo=npm&style=flat-square)
+![npm downloads](https://img.shields.io/npm/dw/tunebase?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/tunebase?style=flat-square)
 ![license](https://img.shields.io/github/license/omgupta15/tunebase?style=flat-square)
 ![last commit](https://img.shields.io/github/last-commit/omgupta15/tunebase?style=flat-square)
