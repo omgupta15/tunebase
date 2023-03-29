@@ -46,7 +46,25 @@ npm install -g tunebase
 
 View on [npm](https://www.npmjs.com/package/tunebase).
 
-<!--  TODO: Add instructions for installing VLC. -->
+## Issues
+
+On Mac OS, the package might face an issue while installing VLC. You might need to do it manually.
+
+If you have GUI version of VLC already, remove it using this command:
+```bash
+rm -rf /Applications/VLC.app
+```
+
+After making sure it isn't installed, you need to install VLC using Homebrew:
+```bash
+brew install vlc
+```
+This will also install the GUI of VLC.
+
+If you don't have Homebrew, you can install it using:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ## Usage
 
