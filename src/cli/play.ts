@@ -13,7 +13,7 @@ import convertSecondsToDurationString from "../utils/convertSecondsToDurationStr
 const ARROW_SEEK_SECONDS = 5;
 const SLIDER_LENGTH = 50;
 const VOLUME_BARS_LENGTH = 15;
-const REFRESH_MS = 100;
+const FPS = 5;
 
 const getAsciifiedImage = async (song: Song): Promise<string> => {
   const image = await asciifyImage(song.image, {
@@ -170,7 +170,7 @@ const play = async (song: Song): Promise<void> => {
   intervalId = setInterval(() => {
     const status: PlayerStatus = player.playing ? "playing" : "paused";
     renderPlayerUI(song, player, status, thumbnail);
-  }, REFRESH_MS);
+  }, Math.round(1000 / FPS));
 };
 
 export default play;
