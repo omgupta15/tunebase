@@ -38,10 +38,10 @@ https://user-images.githubusercontent.com/36772158/227199684-c82053fd-2471-4b1f-
 
 ## Installation
 
-Install `tunebase` with npm:
+Install or update `tunebase` with npm:
 
 ```bash
-npm install -g tunebase
+npm install -g tunebase@latest
 ```
 
 View on [npm](https://www.npmjs.com/package/tunebase).
