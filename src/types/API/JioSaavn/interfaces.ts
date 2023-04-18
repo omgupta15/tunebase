@@ -9,7 +9,8 @@ interface IJioSaavn {
   request(params: RequestParams): Promise<ResponseObject>;
 
   searchSongs(query: string): Promise<Song[]>;
-  getSongDetails(song: Song): Promise<Song>;
+  getSongDetails(song: Song, fetchStreamUrl: boolean): Promise<Song>;
+  generateStreamUrl(encryptedMediaUrl: string): Promise<string>;
 }
 
 export { IJioSaavn };

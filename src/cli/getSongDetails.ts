@@ -11,8 +11,11 @@ const getSongDetails = async (song: Song): Promise<Song | undefined> => {
 
   const spinner = createSpinner(`Fetching song details...`).start();
 
-  const songWithDetails = await JioSaavn.getSongDetails(song);
-  if (songWithDetails.streamUrl === undefined) {
+  const songWithDetails = await JioSaavn.getSongDetails(song, true);
+  if (
+    songWithDetails.streamUrl === undefined ||
+    songWithDetails.streamUrl === ""
+  ) {
     spinner.error({
       text: `An error occurred while fetching song details! Please check your internet connection and try again.`,
     });

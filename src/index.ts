@@ -23,7 +23,12 @@ const run = async (): Promise<void> => {
   const selectedSong = await cli.selectSong(songs);
 
   const song = await cli.getSongDetails(selectedSong);
-  if (song === undefined || song.streamUrl === undefined) return;
+  if (
+    song === undefined ||
+    song.streamUrl === undefined ||
+    song.streamUrl === ""
+  )
+    return;
 
   await cli.play(song);
 };

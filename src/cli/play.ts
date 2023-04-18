@@ -148,7 +148,7 @@ const play = async (song: Song): Promise<void> => {
     }
   });
 
-  process.stdin.setRawMode(true);
+  process.stdin?.setRawMode?.(true);
   process.stdin.resume();
 
   const player = new Audic(song.streamUrl);

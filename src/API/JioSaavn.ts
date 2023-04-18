@@ -10,6 +10,7 @@ import Song from "../types/song.js";
 import {
   SearchSongsParams,
   GetSongDetailsParams,
+  GenerateStreamUrlParams,
   RequestParams,
   ResponseObject,
 } from "../types/API/JioSaavn/types.js";
@@ -18,6 +19,7 @@ import {
 import {
   isGetSongDetailsResponse,
   isSearchSongsResponse,
+  isGenerateStreamUrlResponse,
   isResponseData,
 } from "../types/API/JioSaavn/checks.js";
 
@@ -78,7 +80,7 @@ class JioSaavn implements IJioSaavn {
 
     const songsList = response.data.songs.data;
     for (let index = 0; index < songsList.length; index++) {
-      songsList[index] = await this.getSongDetails(songsList[index]);
+      songsList[index] = await this.getSongDetails(songsList[index], false);
       songsList[index].title = decode(songsList[index].title);
       songsList[index].album = decode(songsList[index].album);
       songsList[index].description = decode(songsList[index].description);
@@ -86,7 +88,7 @@ class JioSaavn implements IJioSaavn {
     return songsList;
   }
 
-  async getSongDetails(song: Song): Promise<Song> {
+  async getSongDetails(song: Song, fetchStreamUrl: boolean): Promise<Song> {
     const params: GetSongDetailsParams = {
       __call: "song.getDetails",
       cc: "in",
@@ -100,16 +102,40 @@ class JioSaavn implements IJioSaavn {
 
     if (!isGetSongDetailsResponse(response.data, song.id)) return song;
 
-    const previewUrl = response.data[song.id].media_preview_url,
-      duration = response.data[song.id].duration,
-      is320Kbps = response.data[song.id]["320kbps"] === "true",
-      year = response.data[song.id].year;
+    const songData = response.data[song.id];
+    const previewUrl = songData.media_preview_url,
+      duration = songData.duration,
+      is320Kbps = songData["320kbps"] === "true",
+      year = songData.year,
+      encryptedMediaUrl = songData.encrypted_media_url;
 
     song.year = year;
     song.durationSeconds = parseInt(duration);
     song.durationString = convertSecondsToDurationString(song.durationSeconds);
-    song.streamUrl = convertStreamUrl(previewUrl, is320Kbps);
+    if (fetchStreamUrl)
+      song.streamUrl = await this.generateStreamUrl(encryptedMediaUrl);
+    // convertStreamUrl(previewUrl, is320Kbps);
+    else song.streamUrl = undefined;
     return song;
+  }
+
+  async generateStreamUrl(encryptedMediaUrl: string): Promise<string> {
+    const params: GenerateStreamUrlParams = {
+      __call: "song.generateAuthToken",
+      url: encryptedMediaUrl,
+      bitrate: 320,
+      api_version: 4,
+      _format: "json",
+      _marker: "0",
+    };
+
+    const response = await this.request(params);
+    if (!response.success) return "";
+
+    if (!isGenerateStreamUrlResponse(response.data)) return "";
+
+    const streamUrl = response.data.auth_url;
+    return streamUrl;
   }
 }
 

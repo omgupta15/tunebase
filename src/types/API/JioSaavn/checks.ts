@@ -3,6 +3,7 @@ import {
   SearchSongsResponse,
   GetSongDetailsResponse,
   ResponseData,
+  GenerateStreamUrlResponse,
 } from "./types.js";
 
 export const isSong = (data: any): data is Song => {
@@ -53,6 +54,8 @@ export const isGetSongDetailsResponse = (
     typeof response[songId] === "object" &&
     "media_preview_url" in response[songId] &&
     typeof response[songId].media_preview_url === "string" &&
+    "encrypted_media_url" in response[songId] &&
+    typeof response[songId].encrypted_media_url === "string" &&
     "320kbps" in response[songId] &&
     typeof response[songId]["320kbps"] === "string" &&
     (response[songId]["320kbps"] === "true" ||
@@ -65,6 +68,20 @@ export const isGetSongDetailsResponse = (
   return false;
 };
 
+export const isGenerateStreamUrlResponse = (
+  response: any
+): response is GenerateStreamUrlResponse => {
+  if (
+    typeof response === "object" &&
+    "status" in response &&
+    response.status === "success" &&
+    "auth_url" in response &&
+    typeof response.auth_url === "string"
+  )
+    return true;
+  return false;
+};
+
 export const isResponseData = (
   response: any,
   songId?: string
@@ -72,5 +89,6 @@ export const isResponseData = (
   if (isSearchSongsResponse(response)) return true;
   if (songId !== undefined && isGetSongDetailsResponse(response, songId))
     return true;
+  if (isGenerateStreamUrlResponse(response)) return true;
   return false;
 };
