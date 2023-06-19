@@ -40,7 +40,7 @@
   "dependencies": {
     "@types/inquirer": "^9.0.3",
     "asciify-image": "^0.1.10",
-    "audic": "^3.0.1",
+    "audic": "^3.0.2",
     "axios": "^1.4.0",
     "chalk": "^5.2.0",
     "figlet": "^1.6.0",
