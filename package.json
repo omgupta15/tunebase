@@ -38,7 +38,7 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@types/inquirer": "^9.0.3",
+    "@types/inquirer": "^9.0.7",
     "asciify-image": "^0.1.10",
     "audic": "^3.0.2",
     "axios": "^1.6.0",
